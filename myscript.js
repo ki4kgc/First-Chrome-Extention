@@ -57,4 +57,25 @@ for (i = 0; i < a.length; i++) {
     });
 };
 
-new_window = open(a,"hoverwindow","width=300,height=200,left=10,top=10");
+//new_window = open(a,"hoverwindow","width=300,height=200,left=10,top=10");
+//window.alert(a);
+
+var links = document.links;
+
+for (var i = 0; i< links.length; i++){
+	links[i].addEventListener('mouseover', moused);
+	
+}
+
+
+function moused(){
+	console.log(this.href);
+	//window.alert(this.href);
+	//
+	//Insert code here to create popup and load other page
+	//Thanks to http://stackoverflow.com/questions/8318591/javascript-addeventlistener-using-to-create-a-mouseover-effect 
+	//for useful info about mouseover
+	//AND
+	//https://developer.mozilla.org/en-US/docs/Web/API/document.links
+	//For info about dom links
+}
