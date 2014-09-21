@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "First Chrome Extension",
+  "description": "This extension demonstrates a browser action context script.",
+  "version": "1.0",
+
+  "permissions": [
+    "tabs", "http://*/*"
+  ],
+
+   "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["myscript.js"]
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
