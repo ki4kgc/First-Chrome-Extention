@@ -1,13 +1,3 @@
-/*var popup = document.createElement("div");
-popup.id = "my-popup";
-document.body.appendChild(popup);
-
-popup.style.top = 100 + "px";
-popup.style.left = 200 +"px";
-
-popup.innerHTML = "something here";
-*/
-
 /*
   *Credit to http://www.codeave.com/javascript/code.asp?u_log=7056
   *
@@ -45,10 +35,10 @@ function close_window()
 new_window.close();
 }
 
-
-
 document.body.innerHTML = document.body.innerHTML.replace(new RegExp("books.html\"", "g"), "books.html\" onMouseOver=\"open_new_window()\" onMouseOut=\"close_window()\"");
 */
+
+/*
 
 var a = document.getElementsByTagName('a');
 for (i = 0; i < a.length; i++) {
@@ -57,6 +47,7 @@ for (i = 0; i < a.length; i++) {
     });
 };
 
+*/
 //new_window = open(a,"hoverwindow","width=300,height=200,left=10,top=10");
 //window.alert(a);
 
@@ -67,9 +58,9 @@ for (var i = 0; i< links.length; i++){
 	
 }
 
-
 function moused(){
-	console.log(this.href);
+	var mousedlink = this.href;
+	console.log(mousedlink);
 	//window.alert(this.href);
 	//
 	//Insert code here to create popup and load other page
@@ -78,4 +69,36 @@ function moused(){
 	//AND
 	//https://developer.mozilla.org/en-US/docs/Web/API/document.links
 	//For info about dom links
+
+	//window.alert(mousedlink)
+	inforequest(mousedlink);
+
 }
+function inforequest(url){
+	//Connect to link and find info
+	//window.alert("Moused over - " + url);
+
+	var httpRequest = new XMLHttpRequest();
+
+	httpRequest.onreadystatechange = function() {
+	 // make sure load is successful and not an error
+		 if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+			 var data = JSON.parse(httpRequest.responseText);
+			 //console.log("Pulling - " + data);
+			 // ... do something with the data ...
+		 }
+	}
+	httpRequest.open("GET", url, true);
+	httpRequest.send();
+}
+
+var popup = document.createElement("div");
+	popup.id = "my-popup";
+	document.body.appendChild(popup);
+
+	popup.style.top = 100 + "px";
+	popup.style.left = 200 +"px";
+
+	popup.innerHTML = "something here";
+
+
