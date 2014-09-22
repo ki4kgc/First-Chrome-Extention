@@ -4,6 +4,7 @@
   "name": "First Chrome Extension",
   "description": "This extension demonstrates a browser action context script.",
   "version": "1.0",
+  "author": "Joey Burns",
 
   "permissions": [
     "tabs", "http://*/*", "https://*/*"
